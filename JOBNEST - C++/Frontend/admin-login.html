@@ -1,0 +1,460 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Login | JOBNEST</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top left, #172554, transparent 40%),
+                radial-gradient(circle at bottom right, #312e81, transparent 40%),
+                #080d1b;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: #ffffff;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 440px;
+        }
+
+        .brand {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .brand-logo {
+            width: 65px;
+            height: 65px;
+            margin: 0 auto 15px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            font-weight: bold;
+            box-shadow: 0 10px 35px rgba(99, 102, 241, 0.3);
+        }
+
+        .brand h1 {
+            font-size: 32px;
+            letter-spacing: 2px;
+            font-weight: 800;
+        }
+
+        .brand h1 span {
+            color: #818cf8;
+        }
+
+        .brand p {
+            color: #94a3b8;
+            margin-top: 8px;
+            font-size: 14px;
+        }
+
+        .login-card {
+            background: rgba(17, 24, 39, 0.95);
+            border: 1px solid rgba(148, 163, 184, 0.15);
+            border-radius: 20px;
+            padding: 38px;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.45);
+        }
+
+        .admin-icon {
+            width: 55px;
+            height: 55px;
+            margin: 0 auto 18px;
+            background: rgba(99, 102, 241, 0.15);
+            border: 1px solid rgba(129, 140, 248, 0.3);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
+        }
+
+        .login-heading {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .login-heading h2 {
+            font-size: 25px;
+            margin-bottom: 9px;
+        }
+
+        .login-heading p {
+            font-size: 13px;
+            color: #94a3b8;
+            line-height: 1.6;
+        }
+
+        .form-group {
+            margin-bottom: 21px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #cbd5e1;
+            margin-bottom: 9px;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-wrapper input {
+            width: 100%;
+            height: 50px;
+            background: #0b1220;
+            border: 1px solid #334155;
+            border-radius: 10px;
+            padding: 0 45px 0 15px;
+            color: #ffffff;
+            font-size: 14px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .input-wrapper input::placeholder {
+            color: #64748b;
+        }
+
+        .input-wrapper input:focus {
+            border-color: #818cf8;
+            box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.12);
+        }
+
+        .input-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #94a3b8;
+            font-size: 17px;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 13px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: none;
+            background: transparent;
+            color: #94a3b8;
+            cursor: pointer;
+            font-size: 12px;
+            padding: 5px;
+        }
+
+        .password-toggle:hover {
+            color: #ffffff;
+        }
+
+        .login-button {
+            width: 100%;
+            height: 51px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 8px;
+            transition: 0.3s;
+        }
+
+        .login-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+        }
+
+        .login-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .login-message {
+            display: none;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .login-message.error {
+            display: block;
+            color: #fca5a5;
+            background: rgba(239, 68, 68, 0.12);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        .login-message.success {
+            display: block;
+            color: #86efac;
+            background: rgba(34, 197, 94, 0.12);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+
+        .security-note {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 23px;
+            color: #64748b;
+            font-size: 12px;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 25px;
+            color: #94a3b8;
+            font-size: 13px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .back-link:hover {
+            color: #a5b4fc;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 25px;
+            color: #64748b;
+            font-size: 12px;
+        }
+
+        @media (max-width: 480px) {
+            .login-card {
+                padding: 27px 22px;
+            }
+
+            .brand h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <main class="login-container">
+
+        <!-- JOBNEST BRANDING -->
+        <div class="brand">
+
+            <div class="brand-logo">
+                J
+            </div>
+
+            <h1>JOB<span>NEST</span></h1>
+
+            <p>Find Opportunities. Build Your Future.</p>
+
+        </div>
+
+
+        <!-- ADMIN LOGIN CARD -->
+        <section class="login-card">
+
+            <div class="admin-icon">
+                🔐
+            </div>
+
+            <div class="login-heading">
+
+                <h2>Admin Login</h2>
+
+                <p>
+                    Welcome back, Administrator.
+                    Please enter your credentials to access the dashboard.
+                </p>
+
+            </div>
+
+
+            <!-- LOGIN MESSAGE -->
+            <div
+                id="loginMessage"
+                class="login-message"
+                role="alert"
+                aria-live="polite">
+            </div>
+
+
+            <!-- LOGIN FORM -->
+            <form id="adminLoginForm" method="post" action="javascript:void(0)">
+
+                <!-- EMAIL -->
+                <div class="form-group">
+
+                    <label for="adminEmail">
+                        Admin Email Address
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <input
+                            type="email"
+                            id="adminEmail"
+                            name="email"
+                            placeholder="Enter admin email"
+                            autocomplete="username"
+                            required>
+
+                        <span class="input-icon">
+                            ✉
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PASSWORD -->
+                <div class="form-group">
+
+                    <label for="adminPassword">
+                        Password
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <input
+                            type="password"
+                            id="adminPassword"
+                            name="password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required>
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            id="togglePassword"
+                            aria-label="Show password">
+                            Show
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- LOGIN BUTTON -->
+                <button
+                    type="submit"
+                    class="login-button">
+
+                    Login to Dashboard
+
+                </button>
+
+            </form>
+
+
+            <!-- SECURITY MESSAGE -->
+            <div class="security-note">
+
+                <span>🔒</span>
+
+                <span>
+                    Protected Administrator Access
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- BACK TO WEBSITE -->
+        <a href="index.html" class="back-link">
+            ← Back to JOBNEST Home
+        </a>
+
+
+        <!-- FOOTER -->
+        <div class="footer">
+
+            © 2026 JOBNEST. All Rights Reserved.
+
+        </div>
+
+    </main>
+
+
+    <!-- PASSWORD VISIBILITY -->
+    <script>
+
+        const passwordInput =
+            document.getElementById("adminPassword");
+
+        const togglePassword =
+            document.getElementById("togglePassword");
+
+        togglePassword.addEventListener("click", function () {
+
+            if (passwordInput.type === "password") {
+
+                passwordInput.type = "text";
+
+                togglePassword.textContent = "Hide";
+
+                togglePassword.setAttribute(
+                    "aria-label",
+                    "Hide password"
+                );
+
+            } else {
+
+                passwordInput.type = "password";
+
+                togglePassword.textContent = "Show";
+
+                togglePassword.setAttribute(
+                    "aria-label",
+                    "Show password"
+                );
+
+            }
+
+        });
+
+    </script>
+
+
+    <!-- ADMIN LOGIN JAVASCRIPT -->
+    <script src="js/admin-login.js"></script>
+
+</body>
+
+</html>

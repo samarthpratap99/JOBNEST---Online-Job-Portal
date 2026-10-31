@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | JOBNEST</title>
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+
+<header class="auth-navbar">
+    <a href="index.html" class="logo">JOB<span>NEST</span><small>.</small></a>
+    <a href="index.html" class="back-home">← Back to Home</a>
+</header>
+
+<main class="auth-container">
+
+    <section class="auth-visual">
+        <div class="visual-glow"></div>
+        <div class="visual-content">
+            <span class="eyebrow">WELCOME BACK</span>
+            <h1>Your next<br><span>opportunity</span><br>is waiting.</h1>
+            <p>Sign in to discover jobs, manage applications and take your career forward.</p>
+
+            <div class="visual-feature">
+                <span>✦</span>
+                <div>
+                    <strong>Your career, your journey</strong>
+                    <small>Everything you need in one place.</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="auth-form-section">
+        <div class="auth-card">
+
+            <div class="mobile-logo">
+                <a href="index.html" class="logo">JOB<span>NEST</span><small>.</small></a>
+            </div>
+
+            <span class="section-kicker">ACCOUNT ACCESS</span>
+            <h2>Welcome <span>back!</span></h2>
+            <p class="form-subtitle">Enter your details to access your account.</p>
+
+            <form id="loginForm">
+
+                <label for="loginEmail">Email Address</label>
+                <input type="email" id="loginEmail"
+                       placeholder="you@example.com" required>
+
+                <label for="loginPassword">Password</label>
+                <div class="password-wrap">
+                    <input type="password" id="loginPassword"
+                           placeholder="Enter your password" required minlength="6">
+                    <button type="button" class="toggle-password"
+                            data-target="loginPassword">Show</button>
+                </div>
+
+                <div class="form-options">
+                    <label class="remember">
+                        <input type="checkbox" id="rememberMe">
+                        Remember me
+                    </label>
+                    <a href="#" id="forgotPassword">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="auth-submit">Sign In →</button>
+                <p id="loginMessage" class="form-message" role="status"></p>
+            </form>
+
+            <div class="auth-switch">
+                Don't have an account?
+                <a href="signup.html">Create Account</a>
+            </div>
+
+            <p class="secure-note">✦ Your career journey starts with JOBNEST.</p>
+        </div>
+    </section>
+
+</main>
+
+<script src="js/auth.js"></script>
+</body>
+</html>

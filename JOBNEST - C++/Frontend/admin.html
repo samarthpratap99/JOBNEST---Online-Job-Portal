@@ -1,0 +1,242 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | JOBNEST</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body style="visibility: hidden;">
+
+<div class="admin-layout">
+
+    <aside class="admin-sidebar" id="adminSidebar">
+        <a href="index.html" class="logo">JOB<span>NEST</span><small>.</small></a>
+
+        <p class="sidebar-label">ADMIN WORKSPACE</p>
+
+        <nav>
+            <button class="admin-nav active" data-page="admin-overview">▦ <span>Overview</span></button>
+            <button class="admin-nav" data-page="manage-jobs">▤ <span>Manage Jobs</span></button>
+            <button class="admin-nav" data-page="post-job">＋ <span>Post New Job</span></button>
+            <button class="admin-nav" data-page="manage-users">♙ <span>Registered Users</span></button>
+            <button class="admin-nav" data-page="manage-applications">▧ <span>Applications</span></button>
+            <button class="admin-nav" data-page="manage-companies">▣ <span>Companies</span></button>
+            <button class="admin-nav" data-page="manage-interviews">◷ <span>Interviews</span></button>
+            <button class="admin-nav" data-page="admin-reports">▥ <span>Reports</span></button>
+        </nav>
+
+        <div class="admin-sidebar-bottom">
+            <div class="admin-support">
+                <span>✦</span>
+                <strong>JOBNEST Admin</strong>
+                <small>Manage your job portal.</small>
+            </div>
+            <a href="index.html" id="adminLogout">↪ &nbsp; Log Out</a>
+        </div>
+    </aside>
+
+    <main class="admin-main">
+
+        <header class="admin-topbar">
+            <button id="adminMobileMenu" class="mobile-menu">☰</button>
+            <div>
+                <small>JOBNEST / ADMINISTRATION</small>
+                <h2 id="adminPageTitle">Overview</h2>
+            </div>
+            <div class="admin-user">
+                <div class="admin-avatar">A</div>
+                <div><strong>Administrator</strong><small>Admin Panel</small></div>
+            </div>
+        </header>
+
+        <div class="admin-content">
+
+            <!-- OVERVIEW -->
+            <section class="admin-page active" id="admin-overview">
+                <div class="admin-welcome">
+                    <div>
+                        <span class="section-kicker">ADMIN CONTROL CENTER</span>
+                        <h1>Welcome to <span>JOBNEST Admin.</span></h1>
+                        <p>Manage jobs, users and applications from one place.</p>
+                    </div>
+                    <div class="welcome-symbol">✦</div>
+                </div>
+
+                <div class="admin-stats">
+                    <article class="admin-stat">
+                        <span class="stat-symbol purple">▤</span>
+                        <small>Total Jobs</small>
+                        <strong id="totalJobs">5</strong>
+                        <p>Available job listings</p>
+                    </article>
+                    <article class="admin-stat">
+                        <span class="stat-symbol green">♙</span>
+                        <small>Registered Users</small>
+                        <strong id="totalUsers">4</strong>
+                        <p>Job seeker accounts</p>
+                    </article>
+                    <article class="admin-stat">
+                        <span class="stat-symbol blue">▧</span>
+                        <small>Applications</small>
+                        <strong id="totalApplications">3</strong>
+                        <p>Applications received</p>
+                    </article>
+                    <article class="admin-stat">
+                        <span class="stat-symbol orange">▣</span>
+                        <small>Companies</small>
+                        <strong id="totalCompanies">4</strong>
+                        <p>Companies listed</p>
+                    </article>
+                </div>
+
+                <div class="admin-panel">
+                    <div class="panel-heading">
+                        <div><h3>Recent Job Listings</h3><p>Latest opportunities on JOBNEST</p></div>
+                        <button class="admin-text-btn" data-open-admin="manage-jobs">View all →</button>
+                    </div>
+                    <div id="overviewJobs" class="admin-list"></div>
+                </div>
+            </section>
+
+            <!-- MANAGE JOBS -->
+            <section class="admin-page" id="manage-jobs">
+                <div class="admin-page-heading">
+                    <div><h1>Manage <span>Jobs</span></h1><p>View and manage available job listings.</p></div>
+                    <button class="admin-primary" data-open-admin="post-job">＋ Post New Job</button>
+                </div>
+                <div class="admin-panel">
+                    <div class="panel-heading">
+                        <div><h3>All Job Listings</h3><p id="jobAdminCount">Manage published jobs</p></div>
+                        <input class="admin-search" id="adminJobSearch" placeholder="Search jobs...">
+                    </div>
+                    <div class="admin-table-wrap">
+                        <table>
+                            <thead><tr><th>Job Title</th><th>Company</th><th>Location</th><th>Salary</th><th>Actions</th></tr></thead>
+                            <tbody id="adminJobsTable"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- POST JOB -->
+            <section class="admin-page" id="post-job">
+                <div class="admin-page-heading">
+                    <div><h1>Post a <span>New Job</span></h1><p>Add a new opportunity to JOBNEST.</p></div>
+                </div>
+                <div class="admin-panel form-panel">
+                    <form id="postJobForm" class="admin-form">
+                        <label>Job Title<input id="newJobTitle" required placeholder="e.g. Python Developer"></label>
+                        <label>Company Name<input id="newJobCompany" required placeholder="e.g. Tech Solutions"></label>
+                        <label>Location
+                            <select id="newJobLocation" required>
+                                <option value="">Select location</option>
+                                <option>Mohali</option><option>Chandigarh</option>
+                                <option>Delhi</option><option>Remote</option>
+                            </select>
+                        </label>
+                        <label>Salary<input id="newJobSalary" required placeholder="e.g. ₹3–5 LPA"></label>
+                        <label>Job Type
+                            <select id="newJobType" required>
+                                <option value="">Select type</option>
+                                <option>Full Time</option><option>Part Time</option>
+                                <option>Internship</option><option>Remote</option>
+                            </select>
+                        </label>
+                        <label>Required Skills<input id="newJobSkills" placeholder="Python, SQL, HTML"></label>
+                        <label class="full-field">Job Description<textarea id="newJobDescription" rows="5" placeholder="Describe the role and responsibilities..."></textarea></label>
+                        <button type="submit" class="admin-primary">Publish Job →</button>
+                        <p id="postJobMessage" class="admin-message full-field"></p>
+                    </form>
+                </div>
+            </section>
+
+            <!-- USERS -->
+            <section class="admin-page" id="manage-users">
+                <div class="admin-page-heading">
+                    <div><h1>Registered <span>Users</span></h1><p>View registered job seeker accounts.</p></div>
+                </div>
+                <div class="admin-panel">
+                    <div class="panel-heading"><div><h3>User Directory</h3><p>Demo user records</p></div></div>
+                    <div class="admin-table-wrap">
+                        <table>
+                            <thead><tr><th>Name</th><th>Email</th><th>Qualification</th><th>Account Type</th></tr></thead>
+                            <tbody id="adminUsersTable"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- APPLICATIONS -->
+            <section class="admin-page" id="manage-applications">
+                <div class="admin-page-heading">
+                    <div><h1>Job <span>Applications</span></h1><p>Review applications and update their status.</p></div>
+                </div>
+                <div class="admin-panel">
+                    <div class="panel-heading"><div><h3>Application Records</h3><p>Manage applicant progress</p></div></div>
+                    <div class="admin-table-wrap">
+                        <table>
+                            <thead><tr><th>Applicant</th><th>Job</th><th>Company</th><th>Status</th><th>Update Status</th></tr></thead>
+                            <tbody id="adminApplicationsTable"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- COMPANIES -->
+            <section class="admin-page" id="manage-companies">
+                <div class="admin-page-heading">
+                    <div><h1>Manage <span>Companies</span></h1><p>Maintain company information.</p></div>
+                </div>
+                <div class="admin-panel">
+                    <div class="panel-heading"><div><h3>Company Directory</h3><p>Demo company records</p></div></div>
+                    <form id="companyForm" class="inline-form">
+                        <input id="companyName" placeholder="Enter company name" required>
+                        <button class="admin-primary" type="submit">＋ Add Company</button>
+                    </form>
+                    <div id="companyList" class="company-list"></div>
+                </div>
+            </section>
+
+            <!-- INTERVIEWS -->
+            <section class="admin-page" id="manage-interviews">
+                <div class="admin-page-heading">
+                    <div><h1>Manage <span>Interviews</span></h1><p>View scheduled interview records.</p></div>
+                </div>
+                <div class="admin-panel">
+                    <div class="panel-heading"><div><h3>Interview Schedule</h3><p>Demo interview records</p></div></div>
+                    <div class="admin-table-wrap">
+                        <table>
+                            <thead><tr><th>Applicant</th><th>Position</th><th>Company</th><th>Date</th><th>Status</th></tr></thead>
+                            <tbody id="adminInterviewsTable"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- REPORTS -->
+            <section class="admin-page" id="admin-reports">
+                <div class="admin-page-heading">
+                    <div><h1>Portal <span>Reports</span></h1><p>Overview of the current demo data.</p></div>
+                    <button class="admin-primary" id="downloadReport">↓ Export Report</button>
+                </div>
+                <div class="report-grid">
+                    <div class="admin-panel"><small>Total Jobs</small><strong id="reportJobs">5</strong></div>
+                    <div class="admin-panel"><small>Total Users</small><strong id="reportUsers">4</strong></div>
+                    <div class="admin-panel"><small>Total Applications</small><strong id="reportApplications">3</strong></div>
+                    <div class="admin-panel"><small>Total Companies</small><strong id="reportCompanies">4</strong></div>
+                </div>
+                <div class="admin-panel report-note">
+                    <h3>Report Summary</h3>
+                    <p>This report is calculated from the demonstration data currently stored in your browser. It will be connected to the C++ project files during backend integration.</p>
+                </div>
+            </section>
+
+        </div>
+    </main>
+</div>
+
+<script src="js/admin.js"></script>
+</body>
+</html>

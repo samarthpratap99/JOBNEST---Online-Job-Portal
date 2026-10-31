@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account | JOBNEST</title>
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+
+<header class="auth-navbar">
+    <a href="index.html" class="logo">JOB<span>NEST</span><small>.</small></a>
+    <a href="index.html" class="back-home">← Back to Home</a>
+</header>
+
+<main class="auth-container">
+
+    <section class="auth-visual">
+        <div class="visual-glow"></div>
+        <div class="visual-content">
+            <span class="eyebrow">START SOMETHING GREAT</span>
+            <h1>Make your<br><span>next move</span><br>count.</h1>
+            <p>Create your JOBNEST account and discover opportunities that match your ambitions.</p>
+
+            <div class="visual-feature">
+                <span>✧</span>
+                <div>
+                    <strong>One account. More opportunities.</strong>
+                    <small>Discover, apply and grow.</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="auth-form-section">
+        <div class="auth-card signup-card">
+
+            <div class="mobile-logo">
+                <a href="index.html" class="logo">JOB<span>NEST</span><small>.</small></a>
+            </div>
+
+            <span class="section-kicker">JOIN JOBNEST</span>
+            <h2>Create your <span>account</span></h2>
+            <p class="form-subtitle">Fill in your details to get started.</p>
+
+            <form id="signupForm">
+
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName"
+                       placeholder="Enter your full name"
+                       required minlength="2">
+
+                <label for="signupEmail">Email Address</label>
+                <input type="email" id="signupEmail"
+                       placeholder="you@example.com" required>
+
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone"
+                       placeholder="10-digit mobile number"
+                       pattern="[0-9]{10}" maxlength="10" required>
+
+                <label for="qualification">Qualification</label>
+                <select id="qualification" required>
+                    <option value="">Select qualification</option>
+                    <option>High School</option>
+                    <option>Intermediate</option>
+                    <option>Diploma</option>
+                    <option>Graduation</option>
+                    <option>Post Graduation</option>
+                    <option>Other</option>
+                </select>
+
+                <label for="accountRole">Account Type</label>
+               <select id="accountRole" required>
+               <option value="jobseeker" selected>Job Seeker</option>
+               </select>
+                <select id="accountRole" required>
+                    <option value="jobseeker">Job Seeker</option>
+                    <option value="admin">Administrator (demo only)</option>
+                </select>
+
+                <label for="signupPassword">Password</label>
+                <div class="password-wrap">
+                    <input type="password" id="signupPassword"
+                           placeholder="Minimum 8 characters"
+                           minlength="8" required>
+                    <button type="button" class="toggle-password"
+                            data-target="signupPassword">Show</button>
+                </div>
+
+                <label for="confirmPassword">Confirm Password</label>
+                <div class="password-wrap">
+                    <input type="password" id="confirmPassword"
+                           placeholder="Re-enter your password"
+                           minlength="8" required>
+                    <button type="button" class="toggle-password"
+                            data-target="confirmPassword">Show</button>
+                </div>
+
+                <label class="terms">
+                    <input type="checkbox" id="terms" required>
+                    I agree to the terms and conditions.
+                </label>
+
+                <button type="submit" class="auth-submit">Create Account →</button>
+                <p id="signupMessage" class="form-message" role="status"></p>
+            </form>
+
+            <div class="auth-switch">
+                Already have an account?
+                <a href="login.html">Sign In</a>
+            </div>
+
+            <p class="secure-note">✦ Build your future with JOBNEST.</p>
+        </div>
+    </section>
+
+</main>
+
+<script src="js/auth.js"></script>
+</body>
+</html>

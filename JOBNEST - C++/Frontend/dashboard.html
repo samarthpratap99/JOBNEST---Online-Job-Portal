@@ -1,0 +1,288 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | JOBNEST</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+<div class="dashboard-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+        <a href="index.html" class="logo">JOB<span>NEST</span><small>.</small></a>
+
+        <div class="sidebar-label">WORKSPACE</div>
+
+        <nav class="side-nav">
+            <button class="nav-item active" data-page="overview">
+                <span>▦</span> Overview
+            </button>
+            <button class="nav-item" data-page="find-jobs">
+                <span>⌕</span> Find Jobs
+            </button>
+            <button class="nav-item" data-page="saved-jobs">
+                <span>♡</span> Saved Jobs
+            </button>
+            <button class="nav-item" data-page="applications">
+                <span>▤</span> My Applications
+            </button>
+            <button class="nav-item" data-page="notifications">
+                <span>♧</span> Notifications
+                <span class="notification-count">2</span>
+            </button>
+            <button class="nav-item" data-page="interviews">
+                <span>▣</span> Interviews
+            </button>
+        </nav>
+
+        <div class="sidebar-label account-label">ACCOUNT</div>
+
+        <nav class="side-nav">
+            <button class="nav-item" data-page="profile">
+                <span>◉</span> My Profile
+            </button>
+            <button class="nav-item" data-page="resume">
+                <span>▧</span> Resume Manager
+            </button>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="sidebar-help">
+                <span>✦</span>
+                <strong>Build your future</strong>
+                <small>Keep exploring new opportunities.</small>
+            </div>
+            <a href="index.html" class="logout-link" id="logoutBtn">
+                <span>↪</span> Log Out
+            </a>
+        </div>
+    </aside>
+
+    <!-- MAIN AREA -->
+    <main class="main-content">
+
+        <header class="topbar">
+            <button class="mobile-menu" id="mobileMenu">☰</button>
+            <div>
+                <span class="topbar-label">JOBSEEKER WORKSPACE</span>
+                <h2 id="pageTitle">Overview</h2>
+            </div>
+
+            <div class="topbar-right">
+                <button class="top-icon" data-open-page="notifications">♧</button>
+                <div class="user-mini">
+                    <div class="avatar" id="userAvatar">U</div>
+                    <div>
+                        <strong id="userName">Job Seeker</strong>
+                        <small>Job Seeker</small>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="page-container">
+
+            <!-- OVERVIEW -->
+            <section class="dashboard-page active" id="overview">
+                <div class="welcome-banner">
+                    <div>
+                        <span class="section-kicker">YOUR CAREER SPACE</span>
+                        <h1>Welcome back, <span id="welcomeName">there</span>!</h1>
+                        <p>Your next opportunity could be just one application away.</p>
+                        <button class="banner-btn" data-open-page="find-jobs">Explore Jobs →</button>
+                    </div>
+                    <div class="banner-art">✦</div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-icon purple-icon">▤</span>
+                        <small>Total Applications</small>
+                        <strong id="applicationCount">3</strong>
+                        <span class="stat-note">Applications submitted</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-icon green-icon">♡</span>
+                        <small>Saved Jobs</small>
+                        <strong id="savedCount">2</strong>
+                        <span class="stat-note">Jobs bookmarked</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-icon blue-icon">▣</span>
+                        <small>Interviews</small>
+                        <strong>1</strong>
+                        <span class="stat-note">Upcoming interview</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-icon orange-icon">◷</span>
+                        <small>Profile Completion</small>
+                        <strong>75%</strong>
+                        <span class="stat-note">Complete your profile</span>
+                    </div>
+                </div>
+
+                <div class="content-grid">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <div>
+                                <h3>Recommended Jobs</h3>
+                                <p>Opportunities you might like</p>
+                            </div>
+                            <button class="text-btn" data-open-page="find-jobs">View all →</button>
+                        </div>
+                        <div id="recommendedJobs" class="recommended-list"></div>
+                    </div>
+
+                    <div class="panel activity-panel">
+                        <div class="panel-heading">
+                            <div>
+                                <h3>Recent Activity</h3>
+                                <p>Your latest updates</p>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-dot green-dot"></span>
+                            <div><strong>Application submitted</strong><small>Python Developer · Today</small></div>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-dot purple-dot"></span>
+                            <div><strong>Job saved</strong><small>Frontend Developer · Yesterday</small></div>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-dot blue-dot"></span>
+                            <div><strong>Profile updated</strong><small>Your profile · Recently</small></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FIND JOBS -->
+            <section class="dashboard-page" id="find-jobs">
+                <div class="page-intro">
+                    <h1>Find your next <span>opportunity.</span></h1>
+                    <p>Search jobs and discover opportunities that match your skills.</p>
+                </div>
+
+                <div class="filter-bar">
+                    <input type="text" id="dashboardSearch" placeholder="Search job title or company">
+                    <select id="jobLocation">
+                        <option value="">All Locations</option>
+                        <option>Mohali</option>
+                        <option>Chandigarh</option>
+                        <option>Delhi</option>
+                        <option>Remote</option>
+                    </select>
+                    <button class="banner-btn" id="dashboardSearchBtn">Search</button>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div><h3>Available Jobs</h3><p id="jobResultCount">Explore open positions</p></div>
+                    </div>
+                    <div id="allJobs" class="job-results"></div>
+                </div>
+            </section>
+
+            <!-- SAVED JOBS -->
+            <section class="dashboard-page" id="saved-jobs">
+                <div class="page-intro">
+                    <h1>Your <span>Saved Jobs</span></h1>
+                    <p>Keep track of the opportunities you are interested in.</p>
+                </div>
+                <div class="panel">
+                    <div id="savedJobsList" class="job-results"></div>
+                </div>
+            </section>
+
+            <!-- APPLICATIONS -->
+            <section class="dashboard-page" id="applications">
+                <div class="page-intro">
+                    <h1>My <span>Applications</span></h1>
+                    <p>Track the progress of your job applications.</p>
+                </div>
+                <div class="panel table-panel">
+                    <div class="panel-heading"><div><h3>Application History</h3><p>Your submitted applications</p></div></div>
+                    <div class="table-scroll">
+                        <table>
+                            <thead><tr><th>Job Title</th><th>Company</th><th>Date</th><th>Status</th></tr></thead>
+                            <tbody id="applicationsTable"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- NOTIFICATIONS -->
+            <section class="dashboard-page" id="notifications">
+                <div class="page-intro">
+                    <h1>Your <span>Notifications</span></h1>
+                    <p>Stay informed about your application updates.</p>
+                </div>
+                <div class="panel" id="notificationList"></div>
+            </section>
+
+            <!-- INTERVIEWS -->
+            <section class="dashboard-page" id="interviews">
+                <div class="page-intro">
+                    <h1>Interview <span>Schedule</span></h1>
+                    <p>Keep track of your upcoming interviews.</p>
+                </div>
+                <div class="panel">
+                    <div class="interview-card">
+                        <div class="interview-date"><strong>15</strong><small>NOV</small></div>
+                        <div class="interview-info">
+                            <h3>Python Developer Interview</h3>
+                            <p>Tech Solutions · Online Interview</p>
+                            <small>10:30 AM · Meeting details to be confirmed</small>
+                        </div>
+                        <span class="status-badge scheduled">Scheduled</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PROFILE -->
+            <section class="dashboard-page" id="profile">
+                <div class="page-intro">
+                    <h1>My <span>Profile</span></h1>
+                    <p>Manage your personal and professional information.</p>
+                </div>
+                <div class="panel profile-panel">
+                    <div class="profile-avatar" id="profileAvatar">U</div>
+                    <form id="profileForm" class="profile-form">
+                        <label>Full Name<input type="text" id="profileName" placeholder="Your full name" required></label>
+                        <label>Email Address<input type="email" id="profileEmail" placeholder="Your email" required></label>
+                        <label>Phone Number<input type="tel" id="profilePhone" placeholder="10-digit phone number" pattern="[0-9]{10}" maxlength="10"></label>
+                        <label>Qualification<input type="text" id="profileQualification" placeholder="Your qualification"></label>
+                        <label>Skills<input type="text" id="profileSkills" placeholder="Python, C++, HTML, CSS"></label>
+                        <button class="banner-btn" type="submit">Save Profile</button>
+                        <p id="profileMessage" class="profile-message"></p>
+                    </form>
+                </div>
+            </section>
+
+            <!-- RESUME -->
+            <section class="dashboard-page" id="resume">
+                <div class="page-intro">
+                    <h1>Resume <span>Manager</span></h1>
+                    <p>Upload and manage your resume.</p>
+                </div>
+                <div class="panel resume-panel">
+                    <div class="resume-symbol">▧</div>
+                    <h3>Upload your resume</h3>
+                    <p>Choose a PDF or DOC/DOCX file from your device.</p>
+                    <input type="file" id="resumeFile" accept=".pdf,.doc,.docx">
+                    <p id="resumeMessage" class="profile-message"></p>
+                    <small>Demo only: the selected file is not uploaded to a server yet.</small>
+                </div>
+            </section>
+
+        </div>
+    </main>
+</div>
+
+<script src="js/dashboard.js"></script>
+</body>
+</html>

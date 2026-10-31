@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOBNEST | Find Your Dream Job</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="navbar">
+    <a href="#" class="logo">JOB<span>NEST</span><small>.</small></a>
+
+    <nav class="nav-links">
+        <a href="#home" class="active">Home</a>
+        <a href="#jobs">Find Jobs</a>
+        <a href="#categories">Categories</a>
+        <a href="#about">About</a>
+    </nav>
+
+    <div class="nav-actions">
+        <a href="login.html" class="login-btn">Log In</a>
+        <a href="signup.html" class="primary-btn">Sign Up</a>
+    </div>
+</header>
+
+<main>
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="eyebrow"><span class="pulse"></span> YOUR CAREER JOURNEY STARTS HERE</div>
+
+            <h1>Find the job that<br> <span>fits your future.</span></h1>
+
+            <p class="hero-description">
+                Discover exciting opportunities, connect with top companies,
+                and take the next step in your professional journey.
+            </p>
+
+            <form class="search-box" id="searchForm">
+                <div class="search-field">
+                    <span>⌕</span>
+                    <input type="text" id="jobSearch" placeholder="Job title, keyword or company">
+                </div>
+                <div class="search-divider"></div>
+                <div class="search-field location-field">
+                    <span>⌖</span>
+                    <input type="text" id="locationSearch" placeholder="Location">
+                </div>
+                <button type="submit" class="search-btn">Search Jobs →</button>
+            </form>
+
+            <p class="popular">
+                Popular: <a href="#jobs" data-search="Python">Python</a>,
+                <a href="#jobs" data-search="Developer">Developer</a>,
+                <a href="#jobs" data-search="Designer">Designer</a>,
+                <a href="#jobs" data-search="Marketing">Marketing</a>
+            </p>
+        </div>
+
+        <div class="hero-visual">
+            <div class="orbit orbit-one"></div>
+            <div class="orbit orbit-two"></div>
+            <div class="visual-card main-visual-card">
+                <div class="visual-icon">✦</div>
+                <span class="visual-label">YOUR NEXT OPPORTUNITY</span>
+                <h3>Build a career<br>you love.</h3>
+                <div class="visual-bottom">
+                    <span>Explore opportunities</span>
+                    <span>↗</span>
+                </div>
+            </div>
+            <div class="floating-card floating-top">
+                <span class="float-icon">✓</span>
+                <div><strong>Career ready</strong><small>Start applying today</small></div>
+            </div>
+            <div class="floating-card floating-bottom">
+                <span class="float-icon purple">✧</span>
+                <div><strong>Great opportunities</strong><small>Waiting for you</small></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div><strong>Explore</strong><span>Career opportunities</span></div>
+        <div><strong>Discover</strong><span>Leading companies</span></div>
+        <div><strong>Connect</strong><span>With your future</span></div>
+        <div><strong>Grow</strong><span>Professionally</span></div>
+    </section>
+
+    <section class="jobs-section" id="jobs">
+        <div class="section-heading">
+            <div>
+                <span class="section-kicker">OPPORTUNITIES FOR YOU</span>
+                <h2>Featured <span>Jobs</span></h2>
+                <p>Explore opportunities that match your skills and ambitions.</p>
+            </div>
+            <a href="#jobs" class="view-all" id="viewAll">View all jobs ↗</a>
+        </div>
+
+        <div class="job-grid" id="jobGrid">
+            <article class="job-card" data-title="Python Developer" data-location="Mohali">
+                <div class="job-top">
+                    <div class="company-icon orange">Py</div>
+                    <button class="save-btn" aria-label="Save Python Developer job">♡</button>
+                </div>
+                <span class="job-type">Full Time</span>
+                <h3>Python Developer</h3>
+                <p class="company-name">Tech Solutions</p>
+                <div class="job-meta"><span>⌖ Mohali</span><span>◷ 0–2 years</span></div>
+                <div class="job-footer"><strong>₹3–5 LPA</strong><button class="apply-btn">View Job →</button></div>
+            </article>
+
+            <article class="job-card" data-title="Frontend Developer" data-location="Chandigarh">
+                <div class="job-top">
+                    <div class="company-icon blue">UI</div>
+                    <button class="save-btn" aria-label="Save Frontend Developer job">♡</button>
+                </div>
+                <span class="job-type">Full Time</span>
+                <h3>Frontend Developer</h3>
+                <p class="company-name">Digital Creators</p>
+                <div class="job-meta"><span>⌖ Chandigarh</span><span>◷ Fresher</span></div>
+                <div class="job-footer"><strong>₹2.5–4 LPA</strong><button class="apply-btn">View Job →</button></div>
+            </article>
+
+            <article class="job-card" data-title="UI UX Designer" data-location="Remote">
+                <div class="job-top">
+                    <div class="company-icon purple">UX</div>
+                    <button class="save-btn" aria-label="Save UI UX Designer job">♡</button>
+                </div>
+                <span class="job-type">Remote</span>
+                <h3>UI/UX Designer</h3>
+                <p class="company-name">Creative Studio</p>
+                <div class="job-meta"><span>⌖ Remote</span><span>◷ 1–3 years</span></div>
+                <div class="job-footer"><strong>₹4–6 LPA</strong><button class="apply-btn">View Job →</button></div>
+            </article>
+        </div>
+        <p id="noResults" class="no-results" hidden>No matching sample jobs found. Try another keyword.</p>
+    </section>
+
+    <section class="categories" id="categories">
+        <div class="section-heading">
+            <div>
+                <span class="section-kicker">EXPLORE YOUR INTERESTS</span>
+                <h2>Popular <span>Categories</span></h2>
+                <p>Find opportunities in the field you love.</p>
+            </div>
+        </div>
+        <div class="category-grid">
+            <button class="category-card" data-category="Developer"><span>⌘</span><strong>Development</strong><small>Software & IT</small></button>
+            <button class="category-card" data-category="Designer"><span>✧</span><strong>Design</strong><small>Creative & UI/UX</small></button>
+            <button class="category-card" data-category="Marketing"><span>◈</span><strong>Marketing</strong><small>Business & Growth</small></button>
+            <button class="category-card" data-category="Data"><span>▦</span><strong>Data & Analytics</strong><small>Insights & Technology</small></button>
+        </div>
+    </section>
+</main>
+
+<footer id="about">
+    <a href="#" class="logo">JOB<span>NEST</span><small>.</small></a>
+    <p>Find opportunities. Build your future.</p>
+    <span>© 2026 JOBNEST. Academic project.</span>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>

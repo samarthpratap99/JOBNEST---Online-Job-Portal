@@ -1,0 +1,7 @@
+mausam|mausam@gmail.com|1234|95|mca|python
+mausam|mausam40@gmail.com|12345|9548431062|MCA|Python,Java
+samarth|samarth@gmail.com|5678|95000000000|MCA|Python
+Mausam|mausam40@gmail.com|12345|9548431062|BCA,MCA|JAVA,PYTHON,C++
+Mausam Chaturvedi|chaturvedimausam596@gmail.com|Mausam@1234|9548431062|Post Graduation|
+Mausam Chaturvedi|chaturvedimausam41@gmail.com|Mausam@12345|9548431062|Graduation|
+Mausam Chaturvedi|mausamchaturvedi42@gmail.com|mausam1234|9548431062|Diploma|

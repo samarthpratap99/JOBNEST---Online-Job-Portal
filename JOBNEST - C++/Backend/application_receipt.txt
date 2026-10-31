@@ -1,0 +1,9 @@
+
+====================================
+       JOB APPLICATION RECEIPT
+====================================
+Applicant Name: Mausam
+Company Name: TCS
+Job Title: PYTHON Developer
+Status: Applied
+====================================
